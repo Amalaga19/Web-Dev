@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Country Guessing Game</h1>
+    <div id="guessedCountries">
+        <span id="guessedCount">0</span> countries guessed
+    </div>
+    <div id="hint"></div>
+    <input type="text" id="guess" placeholder="Enter your guess">
+    <button id="submit">Submit Guess</button>
+    <button id="playAgain" hidden>Play Again</button>
+
+    <div id="continentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Guessed Countries by Continent</h2>
+            <div id="continentStats"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
