@@ -1,3 +1,84 @@
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const app = express();
+const config = require('./config');
+
+const PORT = config.PORT;
+
+// ---- Connect to mongodb here ----
+// read in mongoose library
+const mongoose = require('mongoose');
+// read in the URI to our MongoDB Atlas 
+const MONGODB_URI = config.MONGODB_URI;
+// Use mongoose to connect to our MongoDB Atlas server
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+
+// --- connect to your collection ---
+
+const countries = require ('./models/allCountries');
+
+// Handle data in a nice way
+app.use(express.json());
+const publicURL = path.resolve(`${__dirname}/public`);
+
+// Set your static server
+app.use(express.static(publicURL));
+
+// Set your static html file
+app.get("/", (req, res) => {
+  res.sendFile( path.resolve(__dirname + "/views/index.html"))
+});
+
+// ---- ADD YOUR API ENDPOINTS HERE ----
+// ---- ADD YOUR API ENDPOINTS HERE ----
+// GET: "api/v1/countries"
+app.get("/api/v1/countries", async (req, res) => {
+    try{
+      //const data = await countries.find();
+      res.json({})
+    } catch(error){
+      console.error(error);
+      res.json(error);
+    }
+  });
+  
+  // POST: "api/v1/countries"
+  app.post("/api/v1/countries", async (req, res) => {
+    try{
+      res.json({})
+    } catch(error){
+      console.error(error);
+      res.json(error);
+    }
+  });
+  
+  // PUT: "api/v1/countries:id"
+  app.put("/api/v1/countries/:id", async (req, res) => {
+    try{
+      res.json({})
+    } catch(error){
+      console.error(error);
+      res.json(error);
+    }
+  });
+  
+  // DELETE: "api/v1/countries:id"
+  app.delete("/api/v1/countries/:id", async (req, res) => {
+    try{
+      res.json({})
+    } catch(error){
+      console.error(error);
+      res.json(error);
+    }
+  });
+
+// Start listening
+app.listen(PORT, () => {
+  console.log(`see the magic: http://localhost:${PORT}`);
+})
+
+/*
 // server.js
 require('dotenv').config();
 const express = require('express');
@@ -85,3 +166,4 @@ app.get('/api/countries/check/:countryCode/:guess', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+*/

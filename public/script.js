@@ -1,3 +1,5 @@
+
+/*
 const hintEl = document.getElementById('hint');
 const guessEl = document.getElementById('guess');
 const submitBtn = document.getElementById('submit');
@@ -145,3 +147,4 @@ window.addEventListener('click', (event) => {
 
 getRandomCountry();
 updateGuessedCountries();
+*/
