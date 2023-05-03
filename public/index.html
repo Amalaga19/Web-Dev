@@ -9,22 +9,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Guess the Country</h1>
-    <div id="guessedCountries">
-        <span id="guessedCount">0</span> countries guessed
-    </div>
-    <div id="hint"></div>
-    <input type="text" id="guess" placeholder="Enter your guess">
-    <button id="submit">Guess</button>
-    <button id="playAgain" hidden>Play Again</button>
-
-    <div id="continentModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Guessed Countries by Continent</h2>
-            <div id="continentStats"></div>
-        </div>
-    </div>
+    <h1>Guess The Country</h1>
+    <p id="continentHint"></p>
+    <p id="populationHint"></p>
+    <p id="capitalHint"></p>
+    <input type="text" id="countryGuess" placeholder="Enter country name">
+    <button id="submitGuess">Submit</button>
+    <p id="message"></p>
+    <button id="playAgain" style="display:none">Play Again</button>
 
     <script src="script.js"></script>
 </body>
