@@ -1,0 +1,2 @@
+This is my final assignment for the Dynamic Web Development class, taken at NYU's ITP during the Spring 2023 semester. It is a game in which the user has to guess a country based on hints provided to them. The information about the countries is stored in a JSON file, which is accessed through an API written on Node.js.
+This is deployed on Glitch and can be accessed [here](https://efficacious-pricey-kite.glitch.me/).
