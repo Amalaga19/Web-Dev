@@ -5,28 +5,28 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// ---- Load local JSON data here ----
-const countries = JSON.parse(fs.readFileSync(path.join(__dirname, 'countries.json'), 'utf8'));
+// Load the JSON data into an array
+const countries = JSON.parse(fs.readFileSync(path.join(__dirname, 'countries.json'), 'utf8')); 
 
-// --- Get a random country from the JSON data ---
+// This function returns a random country from the countries array.
 function getRandomCountry() {
     const randomIndex = Math.floor(Math.random() * countries.length);
     return countries[randomIndex];
 }
 
-// Handle data in a nice way
+// Set up express to handle JSON data
 app.use(express.json());
 const publicURL = path.resolve(`${__dirname}/public`);
 
-// Set your static server
+// Set static server
 app.use(express.static(publicURL));
 
-// Set your static html file
+// Set static html file
 app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname + "/views/index.html"));
 });
 
-// ---- ADD YOUR API ENDPOINTS HERE ----
+// Set up an API endpoint to fetch a random country
 app.get('/api/countries/random', (req, res) => {
     try {
         const randomCountry = getRandomCountry();
